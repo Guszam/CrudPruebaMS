@@ -3,6 +3,7 @@ package com.mx.test.Oracle.controller;
 import com.mx.test.Oracle.model.Estudiantes;
 import com.mx.test.Oracle.services.EstudiantesServices;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,6 +30,11 @@ public class EstudiantesController {
     @PostMapping
     public Estudiantes saveEstudiantes(@RequestBody Estudiantes estudiantes){
         return estudiantesServices.saveOrUpdateEstudiantes(estudiantes);
+    }
+
+    @PutMapping
+    public ResponseEntity<?> updateEstudiantes(@RequestBody Estudiantes estudiantes){
+        return  estudiantesServices.updateEstudiantes(estudiantes);
     }
 
 }
